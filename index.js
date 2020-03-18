@@ -12,7 +12,7 @@ async function run () {
     .filter(branch => !!branch.trim())
     .map(branch => {
       const [, flag, value, hint] = branch.match(/([* ]) +([^ ]+) +(.+)/)
-      return { value, hint, disabled: flag === '*' }
+      return { value, hint }
     })
 
   const { branch } = await prompts({
@@ -35,6 +35,7 @@ async function checkout (branch) {
   const { stdout, stderr } = await exec(`git checkout ${branch}`)
   process.stdout.write(stdout)
   process.stderr.write(stderr)
+  process.exit();
 }
 
 function onError (e) {
@@ -43,6 +44,7 @@ function onError (e) {
   } else {
     console.error(e)
   }
+  process.exit();
 }
 
 run().catch(onError)
