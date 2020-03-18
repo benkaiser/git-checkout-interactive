@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const { promisify } = require('util')
 const exec = promisify(require('child_process').exec)
 const prompts = require('prompts')
