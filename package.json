@@ -8,8 +8,8 @@
     "node": ">=7.6.0"
   },
   "bin": {
-    "gci": "node index.js",
-    "git-interactive-checkout": "node index.js"
+    "gci": "index.js",
+    "git-interactive-checkout": "index.js"
   },
   "dependencies": {
     "prompts": "^2.0.4"
